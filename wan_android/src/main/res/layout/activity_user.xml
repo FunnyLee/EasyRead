@@ -2,6 +2,16 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="userViewModel"
+            type="com.funny.wan.viewModel.UserViewModel"/>
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,39 +29,43 @@
                 style="@style/Txt_1_R_15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="用户名"/>
+                android:hint="用户名"
+                android:text="@={userViewModel.username}"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/dp_25"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_25">
 
             <EditText
                 android:id="@+id/pwd_et"
                 style="@style/Txt_1_R_15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="密码"/>
+                android:hint="密码"
+                android:text="@={userViewModel.password}"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:id="@+id/login_btn"
             style="@style/Txt_W_R_15"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="登录"
-            android:background="@color/theme"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_45"/>
+            android:layout_height="@dimen/dp_45"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@color/theme"
+            android:text="登录"/>
 
         <Button
+            android:id="@+id/registe_btn"
             style="@style/Txt_W_R_15"
-            android:layout_marginTop="@dimen/dp_15"
-            android:text="注册"
-            android:background="@color/theme"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_45"/>
+            android:layout_height="@dimen/dp_45"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@color/theme"
+            android:text="注册"/>
 
     </LinearLayout>
 

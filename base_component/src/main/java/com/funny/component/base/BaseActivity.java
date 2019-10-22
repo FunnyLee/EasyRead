@@ -31,7 +31,7 @@ public abstract class BaseActivity<VM extends AndroidViewModel, B extends ViewDa
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             contentView.setLayoutParams(params);
             containerView.addView(contentView);
-            initViewModle();
+            createViewModle();
         }
     }
 
@@ -40,13 +40,18 @@ public abstract class BaseActivity<VM extends AndroidViewModel, B extends ViewDa
         super.onCreate(savedInstanceState);
 
         initView();
+        initEvent();
     }
 
-    protected abstract void initView();
+    protected void initView() {
+    }
+
+    protected void initEvent() {
+    }
 
     protected abstract int getLayoutId();
 
-    private void initViewModle() {
+    private void createViewModle() {
         Class<VM> viewModelClass = ClassUtil.getViewModel(this);
         if (viewModelClass != null) {
             mViewModel = ViewModelProviders.of(this).get(viewModelClass);

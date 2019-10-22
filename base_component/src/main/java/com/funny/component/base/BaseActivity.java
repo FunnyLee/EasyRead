@@ -1,4 +1,4 @@
-package com.funny.component;
+package com.funny.component.base;
 
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.ViewModelProviders;

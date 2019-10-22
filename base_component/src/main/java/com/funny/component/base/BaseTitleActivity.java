@@ -1,4 +1,4 @@
-package com.funny.component;
+package com.funny.component.base;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.funny.component.R;
 import com.funny.component.databinding.ActivityBaseTitleBinding;
 
 /**

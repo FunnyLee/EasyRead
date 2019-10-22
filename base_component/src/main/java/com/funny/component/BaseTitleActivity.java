@@ -16,10 +16,9 @@ import com.funny.component.databinding.ActivityBaseTitleBinding;
  * Time: 2019/10/22
  * Description: This is 封装了Toolbar的Activity
  */
-public class BaseTitleActivity extends AppCompatActivity {
+public abstract class BaseTitleActivity extends AppCompatActivity {
 
     private ActivityBaseTitleBinding mBingdingView;
-    protected FrameLayout mContainerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,12 +26,15 @@ public class BaseTitleActivity extends AppCompatActivity {
 
         mBingdingView = DataBindingUtil.inflate(getLayoutInflater(), R.layout.activity_base_title, null, false);
         View mRootView = mBingdingView.getRoot();
-        mContainerView = mBingdingView.containerFl;
+        FrameLayout containerView = mBingdingView.containerFl;
+        initContainerView(containerView);
         setContentView(mRootView);
 
         //设置标题栏
         setToolBar(mBingdingView.toolBar);
     }
+
+    protected abstract void initContainerView(FrameLayout containerView);
 
     /**
      * 设置titlebar

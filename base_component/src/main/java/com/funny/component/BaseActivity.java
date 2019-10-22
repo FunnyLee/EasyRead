@@ -17,28 +17,34 @@ import com.funny.component.utils.ClassUtil;
  * Time: 2019/10/21
  * Description: This is BaseActivity
  */
-public class BaseActivity<VM extends AndroidViewModel, B extends ViewDataBinding> extends BaseTitleActivity {
+public abstract class BaseActivity<VM extends AndroidViewModel, B extends ViewDataBinding> extends BaseTitleActivity {
 
     protected VM mViewModel;
     protected B mBingdingView;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initContainerView(FrameLayout containerView) {
+        mBingdingView = DataBindingUtil.inflate(getLayoutInflater(), getLayoutId(), null, false);
+        if (mBingdingView != null) {
+            //设置contentView
+            View contentView = mBingdingView.getRoot();
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            contentView.setLayoutParams(params);
+            containerView.addView(contentView);
+            initViewModle();
+        }
     }
 
     @Override
-    public void setContentView(int layoutResID) {
-        super.setContentView(layoutResID);
-        mBingdingView = DataBindingUtil.inflate(getLayoutInflater(), layoutResID, null, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        //设置contentView
-        View contentView = mBingdingView.getRoot();
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        contentView.setLayoutParams(params);
-        mContainerView.addView(contentView);
-        initViewModle();
+        initView();
     }
+
+    protected abstract void initView();
+
+    protected abstract int getLayoutId();
 
     private void initViewModle() {
         Class<VM> viewModelClass = ClassUtil.getViewModel(this);
@@ -46,6 +52,4 @@ public class BaseActivity<VM extends AndroidViewModel, B extends ViewDataBinding
             mViewModel = ViewModelProviders.of(this).get(viewModelClass);
         }
     }
-
-
 }

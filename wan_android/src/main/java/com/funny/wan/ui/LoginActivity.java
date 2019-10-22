@@ -1,15 +1,17 @@
 package com.funny.wan.ui;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
+import com.funny.component.BaseActivity;
 import com.funny.wan.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+    protected int getLayoutId() {
+        return R.layout.activity_login;
+    }
+
+    @Override
+    protected void initView() {
+        setTitle("登录");
     }
 }

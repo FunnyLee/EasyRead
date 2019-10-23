@@ -1,7 +1,8 @@
 package com.funny.wan.api;
 
 
-import com.funny.wan.entity.BaseWanAndroidResponse;
+import com.funny.wan.entity.BaseWanResponse;
+import com.funny.wan.entity.UserInfo;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -25,7 +26,7 @@ public interface IUserApi {
      */
     @FormUrlEncoded
     @POST("user/register")
-    Observable<BaseWanAndroidResponse> registe(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
+    Observable<BaseWanResponse<UserInfo>> registe(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
     /**
      * 登录 https://www.wanandroid.com/user/login
@@ -34,5 +35,7 @@ public interface IUserApi {
      * @param password
      * @return
      */
-    Observable login(@Field("username") String username, @Field("password") String password);
+    @FormUrlEncoded
+    @POST("user/login")
+    Observable<BaseWanResponse<UserInfo>> login(@Field("username") String username, @Field("password") String password);
 }

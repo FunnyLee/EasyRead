@@ -49,7 +49,6 @@ dependencies {
     api 'com.trello.rxlifecycle2:rxlifecycle-navi:2.2.2'
     //rxJava
     api "io.reactivex.rxjava2:rxjava:2.2.0"
-    api 'com.jakewharton.rxbinding3:rxbinding:3.0.0'
 
     //网络请求日志拦截
     api('com.github.ihsanbal:LoggingInterceptor:3.0.0') {

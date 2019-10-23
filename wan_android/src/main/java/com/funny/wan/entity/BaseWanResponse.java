@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Time: 2019/7/30
  * Description: This is BaseWanAndroidInfo
  */
-public class BaseWanAndroidResponse<T> implements Serializable {
+public class BaseWanResponse<T> implements Serializable {
 
     @SerializedName("errorCode")
     public int errorCode;

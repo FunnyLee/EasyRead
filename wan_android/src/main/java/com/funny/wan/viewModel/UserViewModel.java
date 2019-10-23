@@ -9,11 +9,11 @@ import com.funny.component.base.BaseViewModel;
 import com.funny.component.net.RetrofitFactory;
 import com.funny.component.utils.ToastUtil;
 import com.funny.wan.api.IUserApi;
-import com.funny.wan.entity.BaseWanAndroidResponse;
+import com.funny.wan.entity.BaseWanResponse;
+import com.funny.wan.entity.UserInfo;
 
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 /**
  * Author: Funny
@@ -34,24 +34,18 @@ public class UserViewModel extends BaseViewModel {
      */
     public void registe() {
         if (verifyData()) {
-            Observable<BaseWanAndroidResponse> registe = RetrofitFactory.getInstance().create(IUserApi.class).registe(username.get(), password.get(), password.get());
-            Disposable disposable = add(registe).subscribe(new Consumer<BaseWanAndroidResponse>() {
-                @Override
-                public void accept(BaseWanAndroidResponse baseWanAndroidResponse) throws Exception {
+            Observable<BaseWanResponse<UserInfo>> registe = RetrofitFactory.getInstance().create(IUserApi.class).registe(username.get(), password.get(), password.get());
+            Disposable disposable = add(registe).subscribe(userInfoBaseWanResponse -> {
 
-                }
             });
         }
     }
 
     public void login() {
         if (verifyData()) {
-            Observable login = RetrofitFactory.getInstance().create(IUserApi.class).login(username.get(), password.get());
-            Disposable disposable = add(login).subscribe(new Consumer() {
-                @Override
-                public void accept(Object o) throws Exception {
+            Observable<BaseWanResponse<UserInfo>> login = RetrofitFactory.getInstance().create(IUserApi.class).login(username.get(), password.get());
+            Disposable disposable = add(login).subscribe(userInfoBaseWanResponse -> {
 
-                }
             });
         }
     }

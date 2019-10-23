@@ -4,14 +4,9 @@ import android.annotation.SuppressLint;
 import android.view.View;
 
 import com.funny.component.base.BaseActivity;
-import com.funny.component.utils.ConstantUtil;
 import com.funny.wan.R;
 import com.funny.wan.databinding.ActivityUserBinding;
 import com.funny.wan.viewModel.UserViewModel;
-
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.functions.Consumer;
 
 public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBinding> {
 
@@ -37,11 +32,12 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
             }
         });
 
-
-//        RxView.clicks(mBingdingView.loginBtn)
-//                .throttleFirst(ConstantUtil.CLICK_INTERVAL, TimeUnit.SECONDS)
-//                .subscribe(unit -> {
-//                    mViewModel.login();
-//                });
+        //登录点击事件
+        mBingdingView.loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewModel.login();
+            }
+        });
     }
 }

@@ -6,9 +6,11 @@
         <activity android:name=".ui.UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+        <activity android:name="com.funny.wan.ui.MainActivity">
         </activity>
     </application>
 

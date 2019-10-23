@@ -7,6 +7,7 @@ import com.funny.component.base.BaseActivity;
 import com.funny.wan.R;
 import com.funny.wan.databinding.ActivityUserBinding;
 import com.funny.wan.viewModel.UserViewModel;
+import com.gyf.immersionbar.ImmersionBar;
 
 public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBinding> {
 
@@ -16,10 +17,17 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
     }
 
     @Override
+    protected void initImmersionbar() {
+        ImmersionBar.with(this).statusBarView(mBingdingView.statusView).init();
+    }
+
+    @Override
     protected void initView() {
+        setToolBar(mBingdingView.includeTitle.toolBar);
         setTitle("登录");
         mBingdingView.setUserViewModel(mViewModel);
     }
+
 
     @SuppressLint("CheckResult")
     @Override

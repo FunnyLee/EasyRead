@@ -15,13 +15,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/dp_15"
-        android:paddingTop="@dimen/dp_30"
-        android:paddingRight="@dimen/dp_15">
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/status_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/theme"/>
+
+        <include
+            android:id="@+id/include_title"
+            layout="@layout/layout_common_title"/>
 
         <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="@dimen/dp_50"
             android:layout_width="match_parent"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
             android:layout_height="wrap_content">
 
             <EditText
@@ -36,6 +46,8 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_25">
 
@@ -50,6 +62,8 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_15"
             android:id="@+id/login_btn"
             style="@style/Txt_W_R_15"
             android:layout_width="match_parent"
@@ -59,6 +73,8 @@
             android:text="登录"/>
 
         <Button
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_15"
             android:id="@+id/registe_btn"
             style="@style/Txt_W_R_15"
             android:layout_width="match_parent"

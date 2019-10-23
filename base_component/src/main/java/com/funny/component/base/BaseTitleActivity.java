@@ -1,16 +1,11 @@
 package com.funny.component.base;
 
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import com.funny.component.R;
-import com.funny.component.databinding.ActivityBaseTitleBinding;
 
 /**
  * Author: Funny
@@ -19,30 +14,15 @@ import com.funny.component.databinding.ActivityBaseTitleBinding;
  */
 public abstract class BaseTitleActivity extends AppCompatActivity {
 
-    private ActivityBaseTitleBinding mBingdingView;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        mBingdingView = DataBindingUtil.inflate(getLayoutInflater(), R.layout.activity_base_title, null, false);
-        View mRootView = mBingdingView.getRoot();
-        FrameLayout containerView = mBingdingView.containerFl;
-        initContainerView(containerView);
-        setContentView(mRootView);
-
-        //设置标题栏
-        setToolBar(mBingdingView.toolBar);
-    }
-
-    protected abstract void initContainerView(FrameLayout containerView);
+    private Toolbar mToolbar;
 
     /**
      * 设置titlebar
      */
-    private void setToolBar(Toolbar toolbar) {
+    public void setToolBar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
+        mToolbar = toolbar;
         if (actionBar != null) {
             //去除默认Title显示
             actionBar.setDisplayShowTitleEnabled(false);
@@ -59,10 +39,8 @@ public abstract class BaseTitleActivity extends AppCompatActivity {
 
     @Override
     public void setTitle(CharSequence title) {
-        mBingdingView.toolBar.setTitle(title);
-    }
-
-    protected void setNoTitle() {
-        mBingdingView.toolBar.setVisibility(View.GONE);
+        if (mToolbar != null) {
+            mToolbar.setTitle(title);
+        }
     }
 }

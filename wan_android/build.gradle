@@ -10,6 +10,12 @@ android {
         targetSdkVersion configInfo.targetSdkVersion
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     dataBinding {
@@ -33,4 +39,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':base_component')
+
+    annotationProcessor "com.alibaba:arouter-compiler:${configInfo.arouterCompiler}"
 }

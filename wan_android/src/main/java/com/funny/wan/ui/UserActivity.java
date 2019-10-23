@@ -1,7 +1,7 @@
 package com.funny.wan.ui;
 
 import android.annotation.SuppressLint;
-import android.view.View;
+import android.support.v7.widget.Toolbar;
 
 import com.funny.component.base.BaseActivity;
 import com.funny.wan.R;
@@ -23,7 +23,8 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
 
     @Override
     protected void initView() {
-        setToolBar(mBingdingView.includeTitle.toolBar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
+        setToolBar(toolbar);
         setTitle("登录");
         mBingdingView.setUserViewModel(mViewModel);
     }
@@ -33,19 +34,10 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
     @Override
     protected void initEvent() {
         //注册点击事件
-        mBingdingView.registeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewModel.registe();
-            }
-        });
+        mBingdingView.registeBtn.setOnClickListener(v -> mViewModel.registe());
+
 
         //登录点击事件
-        mBingdingView.loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewModel.login();
-            }
-        });
+        mBingdingView.loginBtn.setOnClickListener(v -> mViewModel.login());
     }
 }

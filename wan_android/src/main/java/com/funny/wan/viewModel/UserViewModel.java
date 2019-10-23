@@ -29,12 +29,27 @@ public class UserViewModel extends BaseViewModel {
         super(application);
     }
 
+    /**
+     * 注册
+     */
     public void registe() {
         if (verifyData()) {
-            Observable<BaseWanAndroidResponse> registe = RetrofitFactory.getInstance().create(IUserApi.class).registe(username.get(), password.get(), username.get());
+            Observable<BaseWanAndroidResponse> registe = RetrofitFactory.getInstance().create(IUserApi.class).registe(username.get(), password.get(), password.get());
             Disposable disposable = add(registe).subscribe(new Consumer<BaseWanAndroidResponse>() {
                 @Override
                 public void accept(BaseWanAndroidResponse baseWanAndroidResponse) throws Exception {
+
+                }
+            });
+        }
+    }
+
+    public void login() {
+        if (verifyData()) {
+            Observable login = RetrofitFactory.getInstance().create(IUserApi.class).login(username.get(), password.get());
+            Disposable disposable = add(login).subscribe(new Consumer() {
+                @Override
+                public void accept(Object o) throws Exception {
 
                 }
             });

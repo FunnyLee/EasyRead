@@ -48,6 +48,8 @@ public class RetrofitFactory {
                     builder.client(okHttpClient);
                     builder.addConverterFactory(GsonConverterFactory.create());
                     builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+
+
                     builder.baseUrl(BASE_URL);
                     sInstance = builder.build();
                 }

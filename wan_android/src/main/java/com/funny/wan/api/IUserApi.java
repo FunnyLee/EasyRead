@@ -1,7 +1,7 @@
 package com.funny.wan.api;
 
 
-import com.funny.wan.entity.BaseWanResponse;
+import com.funny.component.entity.BaseWanResponse;
 import com.funny.wan.entity.UserInfo;
 
 import io.reactivex.Observable;

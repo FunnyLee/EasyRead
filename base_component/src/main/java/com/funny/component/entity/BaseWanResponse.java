@@ -1,4 +1,4 @@
-package com.funny.wan.entity;
+package com.funny.component.entity;
 
 import com.google.gson.annotations.SerializedName;
 

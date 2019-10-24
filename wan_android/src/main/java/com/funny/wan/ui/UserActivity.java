@@ -38,6 +38,12 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
 
 
         //登录点击事件
-        mBingdingView.loginBtn.setOnClickListener(v -> mViewModel.login());
+        mBingdingView.loginBtn.setOnClickListener(v -> {
+            mViewModel.login().observe(this, aBoolean -> loginSuccess());
+        });
+    }
+
+    private void loginSuccess() {
+        MainActivity.start(this);
     }
 }

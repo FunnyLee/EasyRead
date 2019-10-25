@@ -6,6 +6,9 @@ package com.funny.component.router;
  * Description: This is ARouter路径管理类
  */
 public class RouterManager {
+
+    public static final String MAIN_ACTIVITY = "/home/MainActivity";
+
     /**
      * wanAndroid
      */

@@ -3,7 +3,9 @@ package com.funny.wan.ui;
 import android.annotation.SuppressLint;
 import android.support.v7.widget.Toolbar;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.funny.component.base.BaseActivity;
+import com.funny.component.router.RouterManager;
 import com.funny.wan.R;
 import com.funny.wan.databinding.ActivityUserBinding;
 import com.funny.wan.viewModel.UserViewModel;
@@ -44,6 +46,7 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
     }
 
     private void loginSuccess() {
-        MainActivity.start(this);
+//        MainActivity.start(this);
+        ARouter.getInstance().build(RouterManager.MAIN_ACTIVITY).navigation();
     }
 }

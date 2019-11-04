@@ -9,7 +9,7 @@
         tools:context="com.funny.wan.ui.MainActivity">
 
         <include
-            android:id="@+id/include_content"
+            android:id="@+id/include_layout"
             layout="@layout/layout_content_view"/>
 
         <android.support.design.widget.NavigationView

@@ -17,6 +17,11 @@ public class ViewPagerFragmentAdapter extends FragmentStatePagerAdapter {
     private List<BaseFragment> fragmentList;
     private List<String> titleList;
 
+    public ViewPagerFragmentAdapter(FragmentManager fm, List<BaseFragment> fragmentList) {
+        super(fm);
+        this.fragmentList = fragmentList;
+    }
+
     public ViewPagerFragmentAdapter(FragmentManager fm, List<BaseFragment> fragmentList, List<String> titleList) {
         super(fm);
         this.fragmentList = fragmentList;

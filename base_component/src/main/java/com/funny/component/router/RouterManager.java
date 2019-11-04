@@ -9,6 +9,12 @@ public class RouterManager {
 
     public static final String MAIN_ACTIVITY = "/home/MainActivity";
 
+    public static final String WAN_FRAGMENT = "/home/WanFragment";
+
+    public static final String GANK_FRAGMENT = "/home/GankFragment";
+
+    public static final String FILM_FRAGMENT = "/home/FilmFragment";
+
     /**
      * wanAndroid
      */

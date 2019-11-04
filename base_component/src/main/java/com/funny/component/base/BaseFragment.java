@@ -2,7 +2,6 @@ package com.funny.component.base;
 
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,9 +26,9 @@ public abstract class BaseFragment<VM extends AndroidViewModel, B extends ViewDa
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        mBindingView = DataBindingUtil.setContentView(getActivity(), getLayoutId());
-        View rootView = mBindingView.getRoot();
+        View rootView = LayoutInflater.from(getContext()).inflate(getLayoutId(), null);
+//        mBindingView = DataBindingUtil.setContentView(getActivity(), getLayoutId());
+//        View rootView = mBindingView.getRoot();
         createViewModle();
         initImmersionbar();
         initView();
@@ -52,9 +51,9 @@ public abstract class BaseFragment<VM extends AndroidViewModel, B extends ViewDa
     protected void initEvent() {
     }
 
-    private void createViewModle(){
+    private void createViewModle() {
         Class<VM> viewModelClass = ClassUtil.getViewModel(this);
-        if(viewModelClass != null){
+        if (viewModelClass != null) {
             mViewModel = ViewModelProviders.of(this).get(viewModelClass);
         }
     }

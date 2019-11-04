@@ -27,6 +27,7 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
     protected void initView() {
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setToolBar(toolbar);
+
         setTitle("登录");
         mBingdingView.setUserViewModel(mViewModel);
     }

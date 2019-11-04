@@ -18,6 +18,6 @@ public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBindin
 
     @Override
     protected void initImmersionbar() {
-        ImmersionBar.with(this).statusBarView(mBingdingView.statusView).init();
+        ImmersionBar.with(this).statusBarView(mBingdingView.includeContent.statusView).init();
     }
 }

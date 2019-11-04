@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/status_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:background="@color/status_bar_color"/>
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/theme">
+
+            <ImageView
+                android:id="@+id/iv_title_menu"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/titlebar_menu"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_title_one"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/titlebar_music"/>
+
+                <ImageView
+                    android:id="@+id/iv_title_two"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/titlebar_disco"/>
+
+                <ImageView
+                    android:id="@+id/iv_title_three"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/titlebar_friends"/>
+
+            </LinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v4.view.ViewPager>
+
+        </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
+</layout>

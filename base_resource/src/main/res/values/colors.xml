@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="theme">#ffce3d3a</color>
+    <color name="status_bar_color">@color/theme</color>
 
     <!--字体颜色-->
     <color name="gray1">#333333</color>

@@ -21,7 +21,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <ImageView
-                android:id="@+id/iv_title_menu"
+                android:id="@+id/menu_iv"
                 android:layout_width="23dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -34,7 +34,7 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/iv_title_one"
+                    android:id="@+id/one_title_iv"
                     android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -42,14 +42,14 @@
                     android:src="@drawable/titlebar_music"/>
 
                 <ImageView
-                    android:id="@+id/iv_title_two"
+                    android:id="@+id/two_title_iv"
                     android:layout_width="55dp"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/titlebar_disco"/>
 
                 <ImageView
-                    android:id="@+id/iv_title_three"
+                    android:id="@+id/three_title_iv"
                     android:layout_width="55dp"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"

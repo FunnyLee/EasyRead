@@ -3,14 +3,14 @@
           package="com.funny.wan">
 
     <application>
-        <activity android:name=".ui.UserActivity">
+        <activity android:name=".ui.activity.UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name="com.funny.wan.ui.MainActivity">
+        <activity android:name="com.funny.wan.ui.activity.MainActivity">
         </activity>
     </application>
 

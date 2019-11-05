@@ -1,4 +1,4 @@
-package com.funny.wan.ui;
+package com.funny.wan.ui.activity;
 
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
@@ -12,6 +12,9 @@ import com.funny.component.router.RouterManager;
 import com.funny.wan.R;
 import com.funny.wan.databinding.ActivityMainBinding;
 import com.funny.wan.databinding.LayoutContentViewBinding;
+import com.funny.wan.ui.fragment.FilmFragment;
+import com.funny.wan.ui.fragment.GankFragment;
+import com.funny.wan.ui.fragment.WanFragment;
 import com.funny.wan.viewModel.MainViewModel;
 import com.gyf.immersionbar.ImmersionBar;
 
@@ -26,6 +29,10 @@ public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBindin
     private ImageView mOneTitleIv;
     private ImageView mTwoTitleIv;
     private ImageView mThreeTitleIv;
+
+    public static void start() {
+        ARouter.getInstance().build(RouterManager.MAIN_ACTIVITY).navigation();
+    }
 
     @Override
     protected int getLayoutId() {
@@ -45,9 +52,9 @@ public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBindin
         mTwoTitleIv = includeLayout.twoTitleIv;
         mThreeTitleIv = includeLayout.threeTitleIv;
 
-        WanFragment wanFragment = (WanFragment) ARouter.getInstance().build(RouterManager.WAN_FRAGMENT).navigation();
-        FilmFragment filmFragment = (FilmFragment) ARouter.getInstance().build(RouterManager.FILM_FRAGMENT).navigation();
-        GankFragment gankFragment = (GankFragment) ARouter.getInstance().build(RouterManager.GANK_FRAGMENT).navigation();
+        WanFragment wanFragment = WanFragment.newInstance();
+        FilmFragment filmFragment = FilmFragment.newInstance();
+        GankFragment gankFragment = GankFragment.newInstance();
 
         mFragmentList.add(wanFragment);
         mFragmentList.add(filmFragment);
@@ -78,9 +85,22 @@ public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBindin
             }
         });
 
-        mOneTitleIv.setOnClickListener(v -> setCurrentTitle(0));
-        mTwoTitleIv.setOnClickListener(v -> setCurrentTitle(1));
-        mThreeTitleIv.setOnClickListener(v -> setCurrentTitle(2));
+        mOneTitleIv.setOnClickListener(v -> {
+            if (mViewPager.getCurrentItem() != 0) {
+                setCurrentTitle(0);
+            }
+        });
+        mTwoTitleIv.setOnClickListener(v -> {
+            if (mViewPager.getCurrentItem() != 1) {
+                setCurrentTitle(1);
+            }
+        });
+
+        mThreeTitleIv.setOnClickListener(v -> {
+            if (mViewPager.getCurrentItem() != 2) {
+                setCurrentTitle(2);
+            }
+        });
     }
 
     private void setCurrentTitle(int position) {

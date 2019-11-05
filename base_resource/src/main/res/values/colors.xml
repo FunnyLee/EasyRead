@@ -11,6 +11,8 @@
     <color name="gray1">#333333</color>
     <color name="gray2">#666666</color>
     <color name="gray3">#999999</color>
+    <color name="red">@color/theme</color>
     
     <color name="white">#FFFFFF</color>
+    <color name="divide_color">#CCCCCC</color>
 </resources>

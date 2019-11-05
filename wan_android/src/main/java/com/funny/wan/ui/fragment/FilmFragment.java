@@ -1,8 +1,7 @@
-package com.funny.wan.ui;
-
-import android.os.Bundle;
+package com.funny.wan.ui.fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.funny.component.base.BaseFragment;
 import com.funny.component.router.RouterManager;
 import com.funny.wan.R;
@@ -17,10 +16,7 @@ public class FilmFragment extends BaseFragment {
 
     public static FilmFragment newInstance() {
 
-        Bundle args = new Bundle();
-
-        FilmFragment fragment = new FilmFragment();
-        fragment.setArguments(args);
+        FilmFragment fragment = (FilmFragment) ARouter.getInstance().build(RouterManager.FILM_FRAGMENT).navigation();
         return fragment;
     }
 

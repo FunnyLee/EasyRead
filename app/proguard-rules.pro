@@ -20,7 +20,8 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-####Retrofit
+
+################################# Retrofit ################################
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
 # EnclosingMethod is required to use InnerClasses.
 -keepattributes Signature, InnerClasses, EnclosingMethod
@@ -44,11 +45,13 @@
 -if interface * { @retrofit2.http.* <methods>; }
 -keep,allowobfuscation interface <1>
 
- #### 沉浸式状态栏
+
+ ############################################# 沉浸式状态栏 ###########################
  -keep class com.gyf.immersionbar.* {*;}
  -dontwarn com.gyf.immersionbar.**
 
- #### glide
+
+ ############################################### glide ##################################
  -keep public class * implements com.bumptech.glide.module.GlideModule
  -keep public class * extends com.bumptech.glide.module.AppGlideModule
  -keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
@@ -57,3 +60,13 @@
  }
  # for DexGuard only
  -keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+
+
+ ###################################### Arouter ###################################
+ -keep public class com.alibaba.android.arouter.routes.**{*;}
+ -keep public class com.alibaba.android.arouter.facade.**{*;}
+ -keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+ # 如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口
+ -keep interface * implements com.alibaba.android.arouter.facade.template.IProvider
+ # 如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现
+ # -keep class * implements com.alibaba.android.arouter.facade.template.IProvider

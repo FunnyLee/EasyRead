@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBindin
 
         ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getSupportFragmentManager(), mFragmentList);
         mViewPager.setAdapter(adapter);
-
+        mViewPager.setOffscreenPageLimit(3);
         setCurrentTitle(0);
     }
 

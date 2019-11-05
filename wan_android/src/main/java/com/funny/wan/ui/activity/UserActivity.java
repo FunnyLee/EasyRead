@@ -46,5 +46,6 @@ public class UserActivity extends BaseActivity<UserViewModel, ActivityUserBindin
 
     private void loginSuccess() {
         MainActivity.start();
+//        TestActivity.start(this);
     }
 }

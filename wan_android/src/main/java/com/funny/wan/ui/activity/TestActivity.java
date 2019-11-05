@@ -1,44 +1,41 @@
-package com.funny.wan.ui.fragment;
+package com.funny.wan.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.funny.component.base.BaseActivity;
 import com.funny.component.base.BaseFragment;
 import com.funny.component.base.ViewPagerFragmentAdapter;
-import com.funny.component.router.RouterManager;
 import com.funny.wan.R;
-import com.funny.wan.databinding.FragmentWanBinding;
-import com.funny.wan.viewModel.NoViewModel;
+import com.funny.wan.ui.fragment.WanMainFragment;
+import com.funny.wan.ui.fragment.WanNavigationFragment;
+import com.funny.wan.ui.fragment.WanPublicFragment;
+import com.funny.wan.ui.fragment.WanSystemFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author: Funny
- * Time: 2019/11/4
- * Description: This is WanFragment
- */
-@Route(path = RouterManager.WAN_FRAGMENT)
-public class WanFragment extends BaseFragment<NoViewModel, FragmentWanBinding> {
+public class TestActivity extends BaseActivity {
 
     private ViewPager mViewPager;
 
-    public static WanFragment newInstance() {
-        WanFragment fragment = (WanFragment) ARouter.getInstance().build(RouterManager.WAN_FRAGMENT).navigation();
-        return fragment;
+    public static void start(Context context) {
+        Intent starter = new Intent(context, TestActivity.class);
+//        starter.putExtra();
+        context.startActivity(starter);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_wan;
+        return R.layout.activity_test;
     }
 
     @Override
     protected void initView() {
-        TabLayout tabLayout = mBindingView.tabLayout;
-        mViewPager = mBindingView.viewPager;
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        mViewPager = findViewById(R.id.view_pager);
         initFragment();
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -57,8 +54,8 @@ public class WanFragment extends BaseFragment<NoViewModel, FragmentWanBinding> {
         fragmentList.add(WanPublicFragment.newInstance());
         fragmentList.add(WanSystemFragment.newInstance());
 
-        ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getChildFragmentManager(), fragmentList, titleList);
-        mViewPager.setCurrentItem(0);
+        ViewPagerFragmentAdapter adapter = new ViewPagerFragmentAdapter(getSupportFragmentManager(), fragmentList, titleList);
         mViewPager.setAdapter(adapter);
+        mViewPager.setOffscreenPageLimit(3);
     }
 }

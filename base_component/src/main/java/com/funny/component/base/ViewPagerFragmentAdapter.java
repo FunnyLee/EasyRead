@@ -53,4 +53,6 @@ public class ViewPagerFragmentAdapter extends FragmentStatePagerAdapter {
         }
         return null;
     }
+
+
 }

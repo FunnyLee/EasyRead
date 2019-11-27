@@ -41,7 +41,6 @@ public class WanFragment extends BaseFragment<NoViewModel, FragmentWanBinding> {
         mViewPager = mBindingView.viewPager;
         initFragment();
         tabLayout.setupWithViewPager(mViewPager);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
     }
 
     private void initFragment() {

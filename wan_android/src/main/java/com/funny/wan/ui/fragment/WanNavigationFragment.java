@@ -5,6 +5,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.funny.component.base.BaseFragment;
 import com.funny.component.router.RouterManager;
 import com.funny.wan.R;
+import com.funny.wan.databinding.FragmentWanNavigationBinding;
+import com.funny.wan.viewModel.NoViewModel;
 
 /**
  * Author: Funny
@@ -12,7 +14,7 @@ import com.funny.wan.R;
  * Description: This is WanNavigationFragment
  */
 @Route(path = RouterManager.WAN_NAVIGATION_FRAGMENT)
-public class WanNavigationFragment extends BaseFragment {
+public class WanNavigationFragment extends BaseFragment<NoViewModel, FragmentWanNavigationBinding> {
 
     public static WanNavigationFragment newInstance() {
         WanNavigationFragment fragment = (WanNavigationFragment) ARouter.getInstance().build(RouterManager.WAN_NAVIGATION_FRAGMENT).navigation();
